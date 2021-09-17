@@ -1,0 +1,224 @@
+nav {
+    #topNav {
+        margin: 0;
+        padding: 16px 24px;
+        width: 100vw;
+        border-top: 4px solid $primary;
+
+        a {
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .logo {
+            max-width: 200px;
+        }
+
+        .left-menu {
+            ul {
+                list-style-type: none;
+
+                li {
+                    display: inline-block;
+                    margin-right: 40px;
+                }
+            }
+        }
+
+        .right-menu {
+            text-align: right;
+
+            ul {
+                list-style-type: none;
+
+                li {
+                    display: inline-block;
+                    margin-left: 40px;
+                }
+            }
+        }
+    }
+
+    #mainNav {
+        padding: 10px;
+
+        > ul {
+            max-width: 1200px;
+            margin: 4px auto;
+            text-align: center;
+            font-size: .9em;
+
+            > li {
+                display: inline-block;
+                margin: 0 24px;
+
+                &.hover {
+                    &:before {
+                        content: '';
+                        position: fixed;
+                        top: 100px;
+                        left: 0;
+                        right: 0;
+                        height: calc(100vh - 100px);
+                        background-color: rgba($black, .5);
+                    }
+
+                    .subNav {
+                        max-height: calc(100vh - 100px);
+                        padding-top: 15px;
+                        padding-bottom: 30px;
+                    }
+                }
+            }
+        }
+
+        .subNav {
+            position: absolute;
+            top: 100px;
+            left: 0;
+            right: 0;
+            background-color: $white;
+            z-index: 1000;
+            overflow: hidden;
+            height: auto;
+            max-height: 0;
+            line-height: 2em;
+            text-align: left;
+            transition: max-height .3s ease, padding .3s ease;
+        }
+    }
+}
+
+header {}
+
+main {
+    margin: 100px 0;
+
+    section {
+        margin: 50px 0;
+    }
+}
+
+.slick {
+    &-item {
+        padding: 8px;
+    }
+
+    &-arrow {
+        background-color: $white;
+        width: 50px;
+        height: 50px;
+        z-index: 900;
+
+        &:hover {
+            background-color: rgba($gray, .2);
+        }
+
+        &:before {
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            color: $black;
+        }
+    }
+
+    &-prev {
+        left: -2px;
+
+        &:before {
+            content: '\f053';
+        }
+    }
+
+    &-next {
+        right: -2px;
+
+        &:before {
+            content: '\f054';
+        }
+    }
+}
+
+.news {
+    padding: 30px;
+
+    .card {
+        cursor: pointer;
+        transition: opacity .3s ease;
+        overflow: hidden;
+        padding-bottom: 50px;
+
+        img {
+            transition: transform .3s ease;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.05);
+            }
+        }
+
+        h6, p {
+            margin: 20px 0;
+            line-height: 1.25em;
+            text-align: left;
+        }
+    }
+}
+
+.img-link {
+    position: relative;
+
+    > div {
+        &:first-child {}
+
+        &:last-child {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 10%;
+        }
+    }
+}
+
+footer {
+    border-top: 8px solid $primary;
+    padding: 30px 40px;
+    font-size: .9em;
+
+    h6 {
+        margin-bottom: 16px;
+        text-align: left
+    }
+
+    ul {
+        line-height: 2em;
+    }
+
+    p {
+        font-size: .9em;
+        font-weight: 200;
+        margin: 24px 0;
+        line-height: 1.25em;
+    }
+
+    a {
+        font-size: .8em;
+        font-weight: 200;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    button {
+        margin: 10px 0;
+        padding: 6px 50px;
+        font-weight: 700;
+    }
+
+    .copyright {
+        text-align: center;
+        font-weight: 300;
+    }
+}

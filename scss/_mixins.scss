@@ -1,0 +1,55 @@
+// Mixins
+
+// Font Mixins
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@100;400;700&family=Noto+Serif+TC:wght@200;400;700&display=swap');
+@mixin sans-font($weight: 400) {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: $weight;
+}
+
+@mixin serif-font($weight: 400) {
+	font-family: 'Noto Serif TC', serif;
+  font-weight: $weight;
+}
+
+
+// Scroll
+/*@mixin scroll {
+	::-webkit-scrollbar {
+		background-color: rgba($white,0);
+		width: 5px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background: $gray-300;
+		border-radius: 3px;
+	}
+}*/
+
+
+// Function
+@mixin btn($color) {
+	background-color: $color;
+	border: 1px solid darken($color,15%);
+	transition: all .3s ease;
+
+	&:hover, &:focus, &:active, &.active {
+		background-color: darken($color,10%);
+		border: 1px solid darken($color,25%);
+	}
+}
+
+@mixin link ($color: $black, $border: $primary) {
+	color: $color;
+	text-decoration: none;
+
+	&:hover, &:focus, &:active, &.active {
+		span {
+			border-bottom: 1px solid $border;
+		}
+	}
+
+	&:visited {
+		color: $black;
+	}
+}
