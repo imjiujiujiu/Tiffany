@@ -1,3 +1,21 @@
+header {
+    height: 500px;
+    background-size: 100%;
+    background-position: top 100px center;
+    background-repeat: no-repeat;
+}
+
+@media screen and (max-width: 768px) {
+    header {
+        height: 100vw;
+        background-size: cover;
+        background-position: top 60px center;
+    }
+}
+
+
+
+
 nav {
     #topNav {
         margin: 0;
@@ -12,6 +30,10 @@ nav {
 
         .logo {
             max-width: 200px;
+        }
+
+        #menu-bar {
+            display: none;
         }
 
         .left-menu {
@@ -61,6 +83,7 @@ nav {
                         right: 0;
                         height: calc(100vh - 100px);
                         background-color: rgba($black, .5);
+                        z-index: 950;
                     }
 
                     .subNav {
@@ -87,9 +110,94 @@ nav {
             transition: max-height .3s ease, padding .3s ease;
         }
     }
+
+    #phoneNav {
+        display: none;
+    }
 }
 
-header {}
+@media screen and (max-width: 768px) {
+    nav {
+        #topNav {
+            padding: 16px 10px;
+
+            li {
+                display: none !important;
+
+                &#menu-bar, &#search {
+                    display: inline-block !important;
+                    margin-right: 14px;
+                }
+
+                &#keep {
+                    display: inline-block !important;
+                }
+            }
+        }
+
+        #mainNav {
+            display: none;
+        }
+
+        #phoneNav {
+            display: initial;
+            position: fixed;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            background-color: $white;
+            padding: 50px 0;
+            z-index: 1000;
+            overflow: hidden;
+            width: auto;
+            max-width: 0;
+            transition: all .3s ease;
+
+            #close {
+                position: absolute;
+                top: 16px;
+                right: 16px;
+                font-size: 1.5em;
+            }
+
+            .firstNav, .subNav {
+                padding: 16px 0;
+
+                li {
+                    padding: 16px 0;
+                }
+            }
+
+            .firstNav {
+                margin-bottom: 16px;
+            }
+
+            .subNav {
+                border-top: 1px solid $gray;
+            }
+
+            &.open {
+                max-width: 100vw;
+                right: 0;
+                padding: 50px 16px;
+                border-top: 5px solid $primary;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    nav {
+        #topNav {
+            .logo {
+                max-width: 150px;
+            }
+        }
+    }
+}
+
+
+
 
 main {
     margin: 100px 0;
@@ -99,46 +207,9 @@ main {
     }
 }
 
-.slick {
-    &-item {
-        padding: 8px;
-    }
-
-    &-arrow {
-        background-color: $white;
-        width: 50px;
-        height: 50px;
-        z-index: 900;
-
-        &:hover {
-            background-color: rgba($gray, .2);
-        }
-
-        &:before {
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            color: $black;
-        }
-    }
-
-    &-prev {
-        left: -2px;
-
-        &:before {
-            content: '\f053';
-        }
-    }
-
-    &-next {
-        right: -2px;
-
-        &:before {
-            content: '\f054';
-        }
-    }
-}
-
-.news {
+#news {
+    border-top: 3px solid $primary;
+    border-bottom: 3px solid $primary;
     padding: 30px;
 
     .card {
@@ -163,13 +234,47 @@ main {
             text-align: left;
         }
     }
+
+    .news-slick {
+        .slick-slide {
+            position: relative;
+            font-size: .9em;
+            line-height: 1.5em;
+            padding: 0 10px;
+
+            > div {
+                &:last-child {
+                    position: absolute;
+                    top: 50%;
+                    left: 20px;
+                    right: 20px;
+                    bottom: 0;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    text-align: center;
+                }
+            }
+        }
+    }
 }
 
-.img-link {
+@media screen and (max-width: 400px) {
+    #news {
+        padding: 30px 10px;
+    }
+}
+
+#engagement {
     position: relative;
 
     > div {
-        &:first-child {}
+        &:first-child {
+            height: 28vw;
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
 
         &:last-child {
             position: absolute;
@@ -179,6 +284,27 @@ main {
         }
     }
 }
+
+@media screen and (max-width: 768px) {
+    #engagement {
+        > div {
+            &:first-child {
+                height: 100vw;
+                background-size: cover;
+                background-position: center right 23%;
+            }
+
+            &:last-child {
+                position: initial;
+                transform: translateY(0%);
+                padding-left: 16px;
+            }
+        }
+    }
+}
+
+
+
 
 footer {
     border-top: 8px solid $primary;
